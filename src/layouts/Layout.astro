@@ -2,11 +2,15 @@
 export interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
+  canonical?: string;
 }
 
 const {
   title = "Property Investors — Inversión inmobiliaria con alta rentabilidad",
   description = "Invierte en inmuebles de alta rentabilidad de forma 100% pasiva. Nosotros localizamos, analizamos, negociamos y gestionamos por ti. Tu libertad financiera, nuestro compromiso.",
+  keywords = "inversión inmobiliaria Zaragoza, invertir en pisos Zaragoza, rentabilidad alquiler Zaragoza, inversión pasiva inmobiliaria",
+  canonical,
 } = Astro.props;
 ---
 
@@ -21,6 +25,8 @@ const {
 
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    {canonical && <link rel="canonical" href={canonical} />}
 
     <!-- Open Graph (para compartir en redes) -->
     <meta property="og:type" content="website" />

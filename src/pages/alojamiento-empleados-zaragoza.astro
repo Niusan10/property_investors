@@ -1,0 +1,696 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+
+const seoTitle =
+  "Alojamiento para Empleados en Zaragoza | Pisos para Empresas — Property Investors";
+const seoDescription =
+  "¿Tu empresa desplaza trabajadores a Zaragoza? Buscamos pisos de alquiler o compra para alojar a tus empleados durante meses o años. La alternativa económica al hotel. Servicio corporativo de búsqueda de vivienda llave en mano.";
+const seoKeywords =
+  "alojamiento para empleados en Zaragoza, pisos para empresas en Zaragoza, alquiler corporativo Zaragoza, vivienda temporal para empleados Zaragoza, alojamiento larga estancia empresas Zaragoza, alternativa al hotel para empresas, pisos para trabajadores desplazados Zaragoza, vivienda de empresa Zaragoza, alojamiento corporativo Zaragoza, relocation Zaragoza, pisos larga estancia empresas";
+
+const beneficios = [
+  {
+    titulo: "Hasta un 40% más barato que el hotel",
+    texto:
+      "Para estancias de meses o años, un piso reduce drásticamente el coste por empleado frente a un hotel. Más metros, cocina propia y tarifa fija.",
+  },
+  {
+    titulo: "Búsqueda 100% a medida",
+    texto:
+      "Nos dices cuántos empleados, el presupuesto, la zona y las fechas. Nosotros localizamos las viviendas que encajan y te las presentamos.",
+  },
+  {
+    titulo: "Compra o alquiler, tú decides",
+    texto:
+      "¿Desplazamiento puntual? Alquiler. ¿Presencia recurrente en Zaragoza? Te buscamos un piso en propiedad como inversión para la empresa.",
+  },
+  {
+    titulo: "Conocimiento local de Zaragoza",
+    texto:
+      "Sabemos qué zonas convienen según el polígono, la fábrica o la oficina donde trabajarán tus empleados. Cerca del trabajo, sin perder tiempo.",
+  },
+  {
+    titulo: "Gestión llave en mano",
+    texto:
+      "Negociamos, revisamos contratos y, si lo necesitas, gestionamos la vivienda durante toda la estancia. Tu empresa se despreocupa.",
+  },
+  {
+    titulo: "Facturación para empresas",
+    texto:
+      "Todo correctamente facturado a tu empresa, con la documentación que necesitas para tu contabilidad y desgravación.",
+  },
+];
+
+const paraQuien = [
+  "Empresas industriales que envían técnicos a fábricas y polígonos de Zaragoza",
+  "Constructoras e ingenierías con obras o proyectos de varios meses",
+  "Consultoras y tecnológicas con equipos desplazados por proyecto",
+  "Empresas de logística y transporte con personal rotativo",
+  "Compañías que abren delegación o sede en Zaragoza",
+  "Cualquier empresa de fuera que necesite alojar trabajadores de forma prolongada",
+];
+
+const pasos = [
+  {
+    num: "1",
+    titulo: "Cuéntanos la necesidad",
+    texto: "Número de empleados, fechas, presupuesto y zona de trabajo en Zaragoza.",
+  },
+  {
+    num: "2",
+    titulo: "Buscamos por ti",
+    texto: "Seleccionamos pisos de alquiler o compra que encajan con tus requisitos.",
+  },
+  {
+    num: "3",
+    titulo: "Te presentamos opciones",
+    texto: "Recibes una propuesta con fotos, precios y comparativa frente al hotel.",
+  },
+  {
+    num: "4",
+    titulo: "Cerramos y gestionamos",
+    texto: "Negociamos, firmamos y, si quieres, gestionamos la vivienda toda la estancia.",
+  },
+];
+
+const faqs = [
+  {
+    p: "¿Por qué un piso y no un hotel para mis empleados?",
+    r: "En estancias largas (semanas, meses o años) el hotel se dispara de precio. Un piso ofrece más espacio, cocina, lavadora y una tarifa fija muy inferior, mejorando el bienestar del empleado y el bolsillo de la empresa.",
+  },
+  {
+    p: "¿Trabajáis con alquiler y con compra?",
+    r: "Sí. Si el desplazamiento es temporal buscamos alquiler; si tu empresa tiene presencia recurrente en Zaragoza, te buscamos un piso en propiedad que además es una inversión que se revaloriza.",
+  },
+  {
+    p: "Nuestra empresa no es de Zaragoza, ¿es un problema?",
+    r: "Al contrario, es justo para quien trabajamos: empresas de fuera que necesitan alojar personal en Zaragoza y no conocen el mercado local. Nosotros ponemos el conocimiento de la ciudad.",
+  },
+  {
+    p: "¿Cuántos empleados puedo alojar?",
+    r: "Desde un único trabajador hasta equipos completos. Buscamos uno o varios pisos según el volumen y la duración de la estancia.",
+  },
+];
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  canonical="https://property-investors.vercel.app/alojamiento-empleados-zaragoza"
+>
+  <!-- Datos estructurados para Google (Service Schema) -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Service",
+      serviceType: "Alojamiento para empleados y pisos para empresas en Zaragoza",
+      provider: {
+        "@type": "Organization",
+        name: "Property Investors",
+        email: "jose@propertyinvestors.es",
+        areaServed: {
+          "@type": "City",
+          name: "Zaragoza",
+        },
+      },
+      areaServed: {
+        "@type": "City",
+        name: "Zaragoza",
+      },
+      description: seoDescription,
+      audience: {
+        "@type": "BusinessAudience",
+        audienceType: "Empresas que desplazan empleados a Zaragoza",
+      },
+    })}
+  />
+
+  <Header />
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero-emp">
+    <div class="hero-emp-fondo"></div>
+    <div class="contenedor hero-emp-inner">
+      <span class="etiqueta">Servicio especial para empresas</span>
+      <h1 class="hero-emp-titulo">
+        Buscamos pisos para <span class="texto-oro">tus empleados</span> en Zaragoza
+      </h1>
+      <p class="hero-emp-sub">
+        ¿Tu empresa desplaza trabajadores a Zaragoza durante meses o años? Localizamos
+        <strong>pisos de alquiler o compra</strong> para alojar a tu personal. La
+        <strong>alternativa económica al hotel</strong>, con búsqueda a medida y gestión
+        llave en mano.
+      </p>
+      <div class="hero-emp-botones">
+        <a href="#contacto-emp" class="btn btn-oro">Solicitar información</a>
+        <a href="#como" class="btn btn-borde">Cómo funciona</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROBLEMA ===================== -->
+  <section class="seccion">
+    <div class="contenedor centro-emp">
+      <span class="etiqueta">El problema del hotel</span>
+      <h2 class="titulo-seccion">
+        Alojar empleados en hotel<br />durante meses sale carísimo
+      </h2>
+      <p class="intro-emp">
+        Cuando una empresa de fuera desplaza trabajadores a Zaragoza para un proyecto,
+        una obra o una temporada larga, el <strong>hotel dispara los costes</strong>:
+        habitaciones pequeñas, sin cocina, y una factura que crece cada noche. Existe una
+        forma mucho más rentable y cómoda de <strong>alojar a tus empleados en Zaragoza</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================== SOLUCIÓN / BENEFICIOS ===================== -->
+  <section class="seccion seccion-alt">
+    <div class="contenedor">
+      <div class="centro-emp">
+        <div class="separador-oro"></div>
+        <span class="etiqueta">La solución</span>
+        <h2 class="titulo-seccion">Pisos para empresas en Zaragoza, a tu medida</h2>
+        <p class="intro-emp">
+          Un servicio especializado de <strong>búsqueda de vivienda corporativa</strong>
+          para empresas que necesitan alojar personal desplazado en Zaragoza.
+        </p>
+      </div>
+      <div class="grid-beneficios">
+        {
+          beneficios.map((b) => (
+            <div class="tarjeta-emp">
+              <h3 class="oro">{b.titulo}</h3>
+              <p>{b.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PARA QUIÉN ===================== -->
+  <section class="seccion">
+    <div class="contenedor centro-emp">
+      <span class="etiqueta">Para quién trabajamos</span>
+      <h2 class="titulo-seccion">Empresas que confían en nosotros</h2>
+    </div>
+    <div class="contenedor">
+      <ul class="lista-emp">
+        {paraQuien.map((p) => <li>{p}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===================== CÓMO FUNCIONA ===================== -->
+  <section class="seccion seccion-alt" id="como">
+    <div class="contenedor centro-emp">
+      <span class="etiqueta">Cómo funciona</span>
+      <h2 class="titulo-seccion">Tu alojamiento corporativo en 4 pasos</h2>
+    </div>
+    <div class="contenedor">
+      <div class="grid-pasos-emp">
+        {
+          pasos.map((p) => (
+            <div class="paso-emp">
+              <span class="paso-emp-num">{p.num}</span>
+              <h3>{p.titulo}</h3>
+              <p>{p.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="seccion">
+    <div class="contenedor estrecho-emp">
+      <div class="centro-emp">
+        <span class="etiqueta">Preguntas frecuentes</span>
+        <h2 class="titulo-seccion">Resolvemos tus dudas</h2>
+      </div>
+      <div class="faqs-emp">
+        {
+          faqs.map((f) => (
+            <details class="faq-emp">
+              <summary>
+                <span>{f.p}</span>
+                <span class="faq-emp-mas">+</span>
+              </summary>
+              <p>{f.r}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO ===================== -->
+  <section class="seccion seccion-contacto-emp" id="contacto-emp">
+    <div class="contenedor estrecho-emp">
+      <div class="centro-emp">
+        <div class="separador-oro"></div>
+        <span class="etiqueta">Solicita información</span>
+        <h2 class="titulo-seccion">Cuéntanos qué necesita tu empresa</h2>
+        <p class="intro-emp">
+          Déjanos los datos de tu empresa y te preparamos una propuesta de alojamiento
+          para tus empleados en Zaragoza, sin compromiso.
+        </p>
+      </div>
+
+      <form class="formulario-emp" id="form-empresas">
+        <input type="hidden" name="access_key" value="84a4ec83-1730-4b7b-907a-bdf359e07df6" />
+        <input
+          type="hidden"
+          name="subject"
+          value="Nueva EMPRESA interesada — Alojamiento empleados Zaragoza"
+        />
+        <input type="hidden" name="from_name" value="Web Property Investors — Empresas" />
+        <input type="checkbox" name="botcheck" style="display:none" />
+
+        <div class="fila-emp-2">
+          <div class="campo-emp">
+            <label for="empresa">Empresa</label>
+            <input type="text" id="empresa" name="empresa" required placeholder="Nombre de tu empresa" />
+          </div>
+          <div class="campo-emp">
+            <label for="contacto">Persona de contacto</label>
+            <input type="text" id="contacto" name="contacto" required placeholder="Tu nombre" />
+          </div>
+        </div>
+        <div class="fila-emp-2">
+          <div class="campo-emp">
+            <label for="email-emp">Email</label>
+            <input type="email" id="email-emp" name="email" required placeholder="tu@empresa.com" />
+          </div>
+          <div class="campo-emp">
+            <label for="tel-emp">Teléfono</label>
+            <input type="tel" id="tel-emp" name="telefono" required placeholder="600 000 000" />
+          </div>
+        </div>
+        <div class="fila-emp-2">
+          <div class="campo-emp">
+            <label for="empleados">Nº de empleados a alojar</label>
+            <input type="text" id="empleados" name="empleados" placeholder="Ej. 5 trabajadores" />
+          </div>
+          <div class="campo-emp">
+            <label for="duracion">Duración estimada</label>
+            <select id="duracion" name="duracion">
+              <option value="1-3 meses">1 - 3 meses</option>
+              <option value="3-6 meses">3 - 6 meses</option>
+              <option value="6-12 meses">6 - 12 meses</option>
+              <option value="Más de 1 año">Más de 1 año</option>
+            </select>
+          </div>
+        </div>
+        <div class="campo-emp">
+          <label for="mensaje-emp">Cuéntanos más (zona de trabajo, presupuesto…)</label>
+          <textarea id="mensaje-emp" name="mensaje" rows="3" placeholder="Zona de Zaragoza, presupuesto por empleado, fechas…"></textarea>
+        </div>
+        <label class="check-emp">
+          <input type="checkbox" required />
+          <span>Acepto la política de privacidad y el tratamiento de mis datos.</span>
+        </label>
+        <button type="submit" class="btn btn-oro btn-full-emp">Solicitar propuesta</button>
+
+        <p class="estado-emp ok-emp" id="ok-emp">
+          ✓ ¡Gracias! Hemos recibido la solicitud de tu empresa. Te contactaremos muy pronto.
+        </p>
+        <p class="estado-emp error-emp" id="error-emp">
+          Ha ocurrido un error. Inténtalo de nuevo o escríbenos a jose@propertyinvestors.es
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer-emp">
+    <div class="contenedor" style="text-align:center;">
+      <img src="/logo.png" alt="Property Investors" class="footer-emp-logo" />
+      <p class="footer-emp-texto">
+        Alojamiento para empleados y pisos para empresas en Zaragoza. La alternativa
+        económica al hotel para estancias largas.
+      </p>
+      <div class="footer-emp-legal">
+        <a href="/">Inicio</a>
+        <span>·</span>
+        <a href="/#contacto">Inversión inmobiliaria</a>
+        <span>·</span>
+        <span>© 2026 Property Investors</span>
+      </div>
+    </div>
+  </footer>
+
+  <script is:inline>
+    document.getElementById("form-empresas")?.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const boton = form.querySelector('button[type="submit"]');
+      const ok = document.getElementById("ok-emp");
+      const error = document.getElementById("error-emp");
+      ok.style.display = "none";
+      error.style.display = "none";
+      const textoOriginal = boton.textContent;
+      boton.textContent = "Enviando...";
+      boton.disabled = true;
+      try {
+        const datos = new FormData(form);
+        const respuesta = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: datos,
+        });
+        const json = await respuesta.json();
+        if (json.success) {
+          form.reset();
+          ok.style.display = "block";
+          ok.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          error.style.display = "block";
+        }
+      } catch (err) {
+        error.style.display = "block";
+      } finally {
+        boton.textContent = textoOriginal;
+        boton.disabled = false;
+      }
+    });
+  </script>
+</Layout>
+
+<style>
+  .centro-emp {
+    text-align: center;
+    max-width: 760px;
+    margin: 0 auto 50px;
+  }
+  .intro-emp {
+    color: var(--texto-suave);
+    font-size: 1.12rem;
+    margin-top: 10px;
+  }
+  .seccion-alt {
+    background: var(--negro-2);
+    border-top: 1px solid rgba(201, 162, 75, 0.1);
+    border-bottom: 1px solid rgba(201, 162, 75, 0.1);
+  }
+  .estrecho-emp {
+    max-width: 800px;
+  }
+
+  /* HERO */
+  .hero-emp {
+    position: relative;
+    min-height: 82vh;
+    display: flex;
+    align-items: center;
+    padding: 150px 0 80px;
+    overflow: hidden;
+    text-align: center;
+  }
+  .hero-emp-fondo {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 50% 15%, rgba(201, 162, 75, 0.16), transparent 55%),
+      radial-gradient(ellipse at 85% 90%, rgba(201, 162, 75, 0.08), transparent 50%),
+      var(--negro);
+    z-index: -1;
+  }
+  .hero-emp-inner {
+    max-width: 860px;
+  }
+  .hero-emp-titulo {
+    font-size: clamp(2.4rem, 6vw, 4.4rem);
+    margin: 12px 0 26px;
+  }
+  .hero-emp-sub {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--texto-suave);
+    max-width: 680px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+  .hero-emp-sub strong {
+    color: #eaeaea;
+    font-weight: 500;
+  }
+  .hero-emp-botones {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* BENEFICIOS */
+  .grid-beneficios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .tarjeta-emp {
+    background: linear-gradient(160deg, var(--negro-3), var(--negro-2));
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    padding: 34px 28px;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .tarjeta-emp:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 162, 75, 0.5);
+  }
+  .tarjeta-emp h3 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+  }
+  .tarjeta-emp p {
+    color: var(--texto-suave);
+    font-size: 0.98rem;
+  }
+
+  /* LISTA PARA QUIÉN */
+  .lista-emp {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .lista-emp li {
+    position: relative;
+    padding-left: 32px;
+    color: var(--texto-suave);
+    font-size: 1.05rem;
+  }
+  .lista-emp li::before {
+    content: "✦";
+    position: absolute;
+    left: 0;
+    color: var(--oro-claro);
+  }
+
+  /* PASOS */
+  .grid-pasos-emp {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .paso-emp {
+    text-align: center;
+    padding: 16px;
+  }
+  .paso-emp-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid var(--oro);
+    font-size: 1.6rem;
+    color: var(--oro-claro);
+    margin-bottom: 20px;
+  }
+  .paso-emp h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  .paso-emp p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+  }
+
+  /* FAQ */
+  .faqs-emp {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .faq-emp {
+    background: var(--negro-2);
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    padding: 0 26px;
+  }
+  .faq-emp summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 0;
+    cursor: pointer;
+    font-size: 1.12rem;
+    list-style: none;
+  }
+  .faq-emp summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-emp-mas {
+    color: var(--oro-claro);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .faq-emp[open] .faq-emp-mas {
+    transform: rotate(45deg);
+  }
+  .faq-emp p {
+    color: var(--texto-suave);
+    padding: 0 0 24px;
+  }
+
+  /* CONTACTO */
+  .seccion-contacto-emp {
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(201, 162, 75, 0.12), transparent 60%),
+      var(--negro);
+  }
+  .formulario-emp {
+    background: var(--negro-2);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .fila-emp-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .campo-emp {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .campo-emp label {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+  }
+  .campo-emp input,
+  .campo-emp select,
+  .campo-emp textarea {
+    background: var(--negro);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+    padding: 14px 16px;
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 1rem;
+    transition: border-color 0.25s;
+  }
+  .campo-emp input:focus,
+  .campo-emp select:focus,
+  .campo-emp textarea:focus {
+    outline: none;
+    border-color: var(--oro-claro);
+  }
+  .campo-emp textarea {
+    resize: vertical;
+  }
+  .check-emp {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+  }
+  .check-emp input {
+    margin-top: 4px;
+    accent-color: var(--oro);
+  }
+  .btn-full-emp {
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  .estado-emp {
+    display: none;
+    text-align: center;
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+  }
+  .ok-emp {
+    background: rgba(201, 162, 75, 0.12);
+    border: 1px solid var(--oro);
+    color: var(--oro-claro);
+  }
+  .error-emp {
+    background: rgba(180, 60, 60, 0.12);
+    border: 1px solid rgba(200, 90, 90, 0.6);
+    color: #e8a0a0;
+  }
+
+  /* FOOTER */
+  .footer-emp {
+    background: var(--negro);
+    border-top: 1px solid var(--borde);
+    padding: 56px 0 40px;
+  }
+  .footer-emp-logo {
+    height: 70px;
+    margin: 0 auto 18px;
+  }
+  .footer-emp-texto {
+    color: var(--texto-suave);
+    max-width: 500px;
+    margin: 0 auto 22px;
+    font-size: 0.95rem;
+  }
+  .footer-emp-legal {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #777;
+  }
+  .footer-emp-legal a:hover {
+    color: var(--oro-claro);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .grid-beneficios,
+    .grid-pasos-emp {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .grid-beneficios,
+    .grid-pasos-emp,
+    .lista-emp,
+    .fila-emp-2 {
+      grid-template-columns: 1fr;
+    }
+    .formulario-emp {
+      padding: 26px;
+    }
+  }
+</style>

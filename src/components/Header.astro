@@ -1,0 +1,92 @@
+---
+// Cabecera compartida por todas las páginas.
+// Los enlaces usan "/#ancla" para que funcionen también desde páginas internas.
+---
+
+<header class="header">
+  <div class="contenedor header-inner">
+    <a href="/" class="logo-wrap">
+      <img src="/logo.png" alt="Property Investors — inversión inmobiliaria en Zaragoza" class="logo" />
+    </a>
+    <nav class="nav">
+      <a href="/#zaragoza">Zaragoza</a>
+      <a href="/#servicios">Servicios</a>
+      <a href="/alojamiento-empleados-zaragoza" class="nav-especial">Servicios especiales</a>
+      <a href="/#proceso">Cómo funciona</a>
+      <a href="/#faq">FAQ</a>
+    </nav>
+    <a href="/#contacto" class="btn btn-oro btn-header">Quiero invertir</a>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.72);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201, 162, 75, 0.12);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 78px;
+  }
+  .logo {
+    height: 52px;
+    width: auto;
+  }
+  .nav {
+    display: flex;
+    gap: 30px;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+    align-items: center;
+  }
+  .nav a {
+    color: var(--texto-suave);
+    transition: color 0.25s;
+  }
+  .nav a:hover {
+    color: var(--oro-claro);
+  }
+  .nav-especial {
+    color: var(--oro-claro) !important;
+    font-weight: 500;
+    border: 1px solid var(--borde);
+    padding: 8px 16px;
+    border-radius: 2px;
+    transition: all 0.25s;
+  }
+  .nav-especial:hover {
+    background: rgba(201, 162, 75, 0.1);
+    border-color: var(--oro-claro);
+  }
+  .btn-header {
+    padding: 12px 26px;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 900px) {
+    .nav {
+      gap: 18px;
+      font-size: 0.82rem;
+    }
+    .nav a:not(.nav-especial) {
+      display: none;
+    }
+  }
+  @media (max-width: 640px) {
+    .btn-header {
+      display: none;
+    }
+    .nav-especial {
+      padding: 7px 12px;
+      font-size: 0.78rem;
+    }
+  }
+</style>
