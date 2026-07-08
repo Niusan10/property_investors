@@ -1,0 +1,186 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Property Investors — Inversión inmobiliaria con alta rentabilidad",
+  description = "Invierte en inmuebles de alta rentabilidad de forma 100% pasiva. Nosotros localizamos, analizamos, negociamos y gestionamos por ti. Tu libertad financiera, nuestro compromiso.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- Open Graph (para compartir en redes) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/logo.png" />
+
+    <!-- Tipografías elegantes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+    <style is:global>
+      :root {
+        --oro: #c9a24b;
+        --oro-claro: #e8c874;
+        --oro-brillo: #f4e2a8;
+        --negro: #0a0a0a;
+        --negro-2: #111111;
+        --negro-3: #171717;
+        --borde: rgba(201, 162, 75, 0.22);
+        --texto: #eaeaea;
+        --texto-suave: #b8b8b8;
+        --serif: "Cormorant Garamond", Georgia, serif;
+        --sans: "Jost", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--negro);
+        color: #eaeaea;
+        font-family: var(--sans);
+        font-weight: 300;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: var(--serif);
+        font-weight: 500;
+        line-height: 1.15;
+        letter-spacing: 0.01em;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      .contenedor {
+        width: 100%;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      .oro {
+        color: var(--oro-claro);
+      }
+
+      .texto-oro {
+        background: linear-gradient(135deg, #f4e2a8 0%, #c9a24b 45%, #e8c874 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Botones */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--sans);
+        font-weight: 500;
+        font-size: 0.95rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 16px 34px;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: none;
+      }
+
+      .btn-oro {
+        background: linear-gradient(135deg, #e8c874 0%, #c9a24b 100%);
+        color: #0a0a0a;
+      }
+
+      .btn-oro:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(201, 162, 75, 0.35);
+      }
+
+      .btn-borde {
+        background: transparent;
+        color: var(--oro-claro);
+        border: 1px solid var(--borde);
+      }
+
+      .btn-borde:hover {
+        border-color: var(--oro-claro);
+        background: rgba(201, 162, 75, 0.08);
+      }
+
+      /* Títulos de sección */
+      .etiqueta {
+        display: inline-block;
+        font-family: var(--sans);
+        font-size: 0.78rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--oro-claro);
+        margin-bottom: 18px;
+      }
+
+      .titulo-seccion {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        margin-bottom: 20px;
+      }
+
+      .seccion {
+        padding: 110px 0;
+        position: relative;
+      }
+
+      .separador-oro {
+        width: 60px;
+        height: 2px;
+        background: linear-gradient(90deg, #c9a24b, #e8c874);
+        margin: 0 auto 26px;
+      }
+
+      @media (max-width: 768px) {
+        .seccion {
+          padding: 70px 0;
+        }
+      }
+    </style>
+  </body>
+</html>

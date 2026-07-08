@@ -1,0 +1,898 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Datos fáciles de editar — cambia estos valores por los tuyos reales
+const cifras = [
+  { valor: "+12", sufijo: "años", texto: "de experiencia en el sector inmobiliario" },
+  { valor: "+1M€", sufijo: "", texto: "de capital gestionado para inversores" },
+  { valor: "7,3%", sufijo: "", texto: "de rentabilidad neta media anual" },
+  { valor: "100%", sufijo: "", texto: "gestión pasiva: nosotros nos ocupamos de todo" },
+];
+
+const problemas = [
+  {
+    icono: "◇",
+    titulo: "No sabes dónde invertir",
+    texto:
+      "Localizar una propiedad verdaderamente rentable exige tiempo, contactos y conocimiento del mercado local que la mayoría no tiene.",
+  },
+  {
+    icono: "◇",
+    titulo: "No tienes tiempo",
+    texto:
+      "Analizar oportunidades, negociar, reformar y gestionar un alquiler es un trabajo a jornada completa que no puedes asumir.",
+  },
+  {
+    icono: "◇",
+    titulo: "Los problemas del día a día",
+    texto:
+      "Impagos, averías, papeleo, inquilinos… la operativa diaria convierte una buena inversión en una fuente de estrés.",
+  },
+];
+
+const servicios = [
+  {
+    num: "01",
+    titulo: "Selección de la zona óptima",
+    texto:
+      "Identificamos las mejores ubicaciones de Zaragoza por rentabilidad, demanda de alquiler y potencial de revalorización.",
+  },
+  {
+    num: "02",
+    titulo: "Equipo local especializado",
+    texto:
+      "Trabajamos con arquitectos, reformistas y agentes de la zona para acceder a oportunidades antes que el mercado.",
+  },
+  {
+    num: "03",
+    titulo: "Análisis, legal y negociación",
+    texto:
+      "Estudiamos cada operación, revisamos la parte jurídica y negociamos el mejor precio de compra por ti.",
+  },
+  {
+    num: "04",
+    titulo: "Gestión integral del alquiler",
+    texto:
+      "Buscamos inquilino, firmamos, cobramos y resolvemos incidencias. Tú solo recibes tus rentas cada mes.",
+  },
+];
+
+const zaragozaRazones = [
+  {
+    titulo: "Precios de entrada accesibles",
+    texto:
+      "El precio por m² sigue muy por debajo de Madrid, Barcelona o Valencia, con recorrido al alza y tickets de inversión más bajos.",
+  },
+  {
+    titulo: "Ubicación estratégica",
+    texto:
+      "En el centro del cuadrante Madrid–Barcelona–Valencia–Bilbao. Nudo logístico de España y puerta de entrada de grandes inversiones.",
+  },
+  {
+    titulo: "Demanda de alquiler sólida",
+    texto:
+      "Ciudad universitaria y con fuerte tejido industrial: miles de estudiantes y trabajadores buscan alquiler todo el año.",
+  },
+  {
+    titulo: "Motor económico en expansión",
+    texto:
+      "Grandes proyectos logísticos, industriales y tecnológicos están atrayendo empleo y población a la ciudad y su entorno.",
+  },
+];
+
+const valores = [
+  {
+    titulo: "Excelencia",
+    texto: "Solo presentamos operaciones que compraríamos con nuestro propio dinero.",
+  },
+  {
+    titulo: "Transparencia",
+    texto: "Números claros y realistas desde el primer minuto. Sin letra pequeña.",
+  },
+  {
+    titulo: "Acompañamiento",
+    texto: "Estamos a tu lado antes, durante y después de la inversión.",
+  },
+];
+
+const pasos = [
+  {
+    num: "1",
+    titulo: "Cuéntanos tu perfil",
+    texto: "Rellena el formulario con tus objetivos y capacidad de inversión.",
+  },
+  {
+    num: "2",
+    titulo: "Accede a las oportunidades",
+    texto: "Te damos acceso a nuestro canal privado con las operaciones disponibles.",
+  },
+  {
+    num: "3",
+    titulo: "Reunión con un asesor",
+    texto: "Analizamos juntos la mejor estrategia según tu situación.",
+  },
+  {
+    num: "4",
+    titulo: "Reserva tu inversión",
+    texto: "Aseguras tu operación en condiciones preferentes y empezamos a trabajar.",
+  },
+];
+
+const casos = [
+  { zona: "Delicias, Zaragoza", tipo: "Piso reformado · alquiler", renta: "7,2%" },
+  { zona: "Las Fuentes, Zaragoza", tipo: "Vivienda por habitaciones", renta: "8,1%" },
+  { zona: "Centro, Zaragoza", tipo: "Piso llave en mano", renta: "6,8%" },
+];
+
+const faqs = [
+  {
+    p: "¿Cuánto necesito para empezar a invertir?",
+    r: "Depende de la operación, pero en Zaragoza es posible entrar con tickets sensiblemente inferiores a los de las grandes capitales. En la reunión analizamos qué encaja con tu capacidad.",
+  },
+  {
+    p: "¿Tengo que ocuparme de algo?",
+    r: "No. Nuestro servicio es 100% pasivo: localizamos, analizamos, negociamos, reformamos si hace falta y gestionamos el alquiler. Tú recibes las rentas.",
+  },
+  {
+    p: "¿Cómo calculáis la rentabilidad?",
+    r: "Siempre de forma conservadora y sobre datos reales de la zona, descontando gastos, impuestos y periodos sin inquilino. Preferimos prometer poco y cumplir.",
+  },
+  {
+    p: "¿Por qué Zaragoza y no otra ciudad?",
+    r: "Por la combinación de precio de entrada, rentabilidad y demanda estable. Hoy ofrece una relación rentabilidad/riesgo difícil de encontrar en otras capitales españolas.",
+  },
+];
+---
+
+<Layout>
+  <!-- ===================== HEADER ===================== -->
+  <header class="header">
+    <div class="contenedor header-inner">
+      <a href="#inicio" class="logo-wrap">
+        <img src="/logo.png" alt="Property Investors" class="logo" />
+      </a>
+      <nav class="nav">
+        <a href="#zaragoza">Zaragoza</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#proceso">Cómo funciona</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#contacto" class="btn btn-oro btn-header">Quiero invertir</a>
+    </div>
+  </header>
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="inicio">
+    <div class="hero-fondo"></div>
+    <div class="contenedor hero-inner">
+      <span class="etiqueta">Inversión inmobiliaria en Zaragoza</span>
+      <h1 class="hero-titulo">
+        Tu libertad financiera.<br />
+        <span class="texto-oro">Nuestro compromiso.</span>
+      </h1>
+      <p class="hero-sub">
+        Invierte en inmuebles de alta rentabilidad en Zaragoza sin preocupaciones.
+        Nosotros localizamos, negociamos y gestionamos cada operación por ti.
+      </p>
+      <div class="hero-botones">
+        <a href="#contacto" class="btn btn-oro">Quiero invertir</a>
+        <a href="#zaragoza" class="btn btn-borde">Por qué Zaragoza</a>
+      </div>
+      <div class="hero-cifras">
+        {
+          cifras.map((c) => (
+            <div class="hero-cifra">
+              <span class="hero-cifra-valor texto-oro">{c.valor}</span>
+              <span class="hero-cifra-texto">{c.texto}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROBLEMAS ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="centro-cabecera">
+        <span class="etiqueta">El reto del inversor</span>
+        <h2 class="titulo-seccion">Invertir en inmuebles<br />no debería ser tan difícil</h2>
+      </div>
+      <div class="grid-3">
+        {
+          problemas.map((p) => (
+            <div class="tarjeta">
+              <span class="tarjeta-icono">{p.icono}</span>
+              <h3>{p.titulo}</h3>
+              <p>{p.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ZARAGOZA ===================== -->
+  <section class="seccion seccion-zaragoza" id="zaragoza">
+    <div class="contenedor">
+      <div class="centro-cabecera">
+        <div class="separador-oro"></div>
+        <span class="etiqueta">La oportunidad</span>
+        <h2 class="titulo-seccion">¿Por qué Zaragoza <span class="texto-oro">ahora</span>?</h2>
+        <p class="intro">
+          Zaragoza vive un momento único: precios todavía accesibles, rentabilidades por
+          encima de la media nacional y una demanda de alquiler en máximos. La oportunidad
+          está aquí, y es ahora.
+        </p>
+      </div>
+      <div class="grid-2">
+        {
+          zaragozaRazones.map((r) => (
+            <div class="tarjeta tarjeta-zgz">
+              <h3 class="oro">{r.titulo}</h3>
+              <p>{r.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICIOS / SOLUCIÓN ===================== -->
+  <section class="seccion" id="servicios">
+    <div class="contenedor">
+      <div class="centro-cabecera">
+        <span class="etiqueta">La solución</span>
+        <h2 class="titulo-seccion">Nosotros nos encargamos de todo</h2>
+        <p class="intro">
+          Un servicio llave en mano para que tu única tarea sea decidir invertir.
+        </p>
+      </div>
+      <div class="grid-servicios">
+        {
+          servicios.map((s) => (
+            <div class="servicio">
+              <span class="servicio-num texto-oro">{s.num}</span>
+              <div>
+                <h3>{s.titulo}</h3>
+                <p>{s.texto}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CIFRAS ===================== -->
+  <section class="seccion seccion-cifras">
+    <div class="contenedor">
+      <div class="grid-4">
+        {
+          cifras.map((c) => (
+            <div class="cifra-bloque">
+              <span class="cifra-valor texto-oro">{c.valor}</span>
+              <span class="cifra-texto">{c.texto}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== VALORES ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="centro-cabecera">
+        <span class="etiqueta">Nuestros valores</span>
+        <h2 class="titulo-seccion">Cómo trabajamos</h2>
+      </div>
+      <div class="grid-3">
+        {
+          valores.map((v) => (
+            <div class="tarjeta tarjeta-valor">
+              <h3 class="oro">{v.titulo}</h3>
+              <p>{v.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESO ===================== -->
+  <section class="seccion seccion-proceso" id="proceso">
+    <div class="contenedor">
+      <div class="centro-cabecera">
+        <span class="etiqueta">Cómo funciona</span>
+        <h2 class="titulo-seccion">Tu inversión en 4 pasos</h2>
+      </div>
+      <div class="grid-4 pasos">
+        {
+          pasos.map((p) => (
+            <div class="paso">
+              <span class="paso-num">{p.num}</span>
+              <h3>{p.titulo}</h3>
+              <p>{p.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CASOS DE ÉXITO ===================== -->
+  <section class="seccion">
+    <div class="contenedor">
+      <div class="centro-cabecera">
+        <span class="etiqueta">Casos de éxito</span>
+        <h2 class="titulo-seccion">Rentabilidades reales en Zaragoza</h2>
+        <p class="intro">Ejemplos de operaciones gestionadas para nuestros inversores.</p>
+      </div>
+      <div class="grid-3">
+        {
+          casos.map((c) => (
+            <div class="tarjeta tarjeta-caso">
+              <span class="caso-renta texto-oro">{c.renta}</span>
+              <span class="caso-etiqueta">rentabilidad neta</span>
+              <h3>{c.zona}</h3>
+              <p>{c.tipo}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="seccion" id="faq">
+    <div class="contenedor contenedor-estrecho">
+      <div class="centro-cabecera">
+        <span class="etiqueta">Preguntas frecuentes</span>
+        <h2 class="titulo-seccion">Resolvemos tus dudas</h2>
+      </div>
+      <div class="faqs">
+        {
+          faqs.map((f) => (
+            <details class="faq">
+              <summary>
+                <span>{f.p}</span>
+                <span class="faq-mas">+</span>
+              </summary>
+              <p>{f.r}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACTO / CTA ===================== -->
+  <section class="seccion seccion-contacto" id="contacto">
+    <div class="contenedor contenedor-estrecho">
+      <div class="centro-cabecera">
+        <div class="separador-oro"></div>
+        <span class="etiqueta">Empieza aquí</span>
+        <h2 class="titulo-seccion">Da el primer paso hacia<br />tu libertad financiera</h2>
+        <p class="intro">
+          Déjanos tus datos y un asesor te contactará para estudiar, sin compromiso,
+          las mejores oportunidades de inversión en Zaragoza.
+        </p>
+      </div>
+
+      <!--
+        FORMULARIO: para que los datos te lleguen de verdad, conéctalo a un servicio gratuito.
+        Opción fácil (Formspree): crea una cuenta en https://formspree.io, copia tu ID
+        y sustitúyelo abajo en action="https://formspree.io/f/TU_ID".
+        Si despliegas en Netlify, puedes usar sus formularios nativos (añade netlify al <form>).
+      -->
+      <form
+        class="formulario"
+        action="https://formspree.io/f/TU_ID"
+        method="POST"
+      >
+        <div class="campo">
+          <label for="nombre">Nombre y apellidos</label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
+        </div>
+        <div class="fila-2">
+          <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="tu@email.com" />
+          </div>
+          <div class="campo">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required placeholder="600 000 000" />
+          </div>
+        </div>
+        <div class="campo">
+          <label for="capital">¿Cuánto te gustaría invertir?</label>
+          <select id="capital" name="capital">
+            <option value="Menos de 50.000€">Menos de 50.000 €</option>
+            <option value="50.000€ - 100.000€">50.000 € - 100.000 €</option>
+            <option value="100.000€ - 200.000€">100.000 € - 200.000 €</option>
+            <option value="Más de 200.000€">Más de 200.000 €</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="mensaje">Mensaje (opcional)</label>
+          <textarea id="mensaje" name="mensaje" rows="3" placeholder="Cuéntanos tu objetivo"></textarea>
+        </div>
+        <label class="check">
+          <input type="checkbox" required />
+          <span>Acepto la política de privacidad y el tratamiento de mis datos.</span>
+        </label>
+        <button type="submit" class="btn btn-oro btn-full">Quiero invertir</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="contenedor footer-inner">
+      <img src="/logo.png" alt="Property Investors" class="footer-logo" />
+      <p class="footer-texto">
+        Inversión inmobiliaria de alta rentabilidad en Zaragoza. Tu libertad financiera,
+        nuestro compromiso.
+      </p>
+      <div class="footer-legal">
+        <span>© 2026 Property Investors</span>
+        <span>·</span>
+        <a href="#">Aviso legal</a>
+        <span>·</span>
+        <a href="#">Privacidad</a>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* ---------- HEADER ---------- */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.72);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(201, 162, 75, 0.12);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 78px;
+  }
+  .logo {
+    height: 52px;
+    width: auto;
+  }
+  .nav {
+    display: flex;
+    gap: 34px;
+    font-size: 0.92rem;
+    letter-spacing: 0.03em;
+  }
+  .nav a {
+    color: var(--texto-suave);
+    transition: color 0.25s;
+  }
+  .nav a:hover {
+    color: var(--oro-claro);
+  }
+  .btn-header {
+    padding: 12px 26px;
+    font-size: 0.8rem;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 130px 0 70px;
+    overflow: hidden;
+  }
+  .hero-fondo {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 20%, rgba(201, 162, 75, 0.14), transparent 55%),
+      radial-gradient(ellipse at 10% 80%, rgba(201, 162, 75, 0.08), transparent 50%),
+      var(--negro);
+    z-index: -1;
+  }
+  .hero-inner {
+    text-align: center;
+    max-width: 900px;
+  }
+  .hero-titulo {
+    font-size: clamp(2.8rem, 7vw, 5.4rem);
+    margin: 10px 0 26px;
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    color: var(--texto-suave);
+    max-width: 640px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+  .hero-botones {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 70px;
+  }
+  .hero-cifras {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    border-top: 1px solid rgba(201, 162, 75, 0.15);
+    padding-top: 40px;
+  }
+  .hero-cifra {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .hero-cifra-valor {
+    font-family: var(--serif);
+    font-size: 2.4rem;
+    font-weight: 600;
+  }
+  .hero-cifra-texto {
+    font-size: 0.82rem;
+    color: var(--texto-suave);
+    line-height: 1.4;
+  }
+
+  /* ---------- CABECERAS DE SECCIÓN ---------- */
+  .centro-cabecera {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 56px;
+  }
+  .intro {
+    color: var(--texto-suave);
+    font-size: 1.1rem;
+    margin-top: 6px;
+  }
+
+  /* ---------- GRIDS ---------- */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  /* ---------- TARJETAS ---------- */
+  .tarjeta {
+    background: linear-gradient(160deg, var(--negro-3), var(--negro-2));
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    padding: 38px 30px;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+  .tarjeta:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201, 162, 75, 0.5);
+  }
+  .tarjeta h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+  .tarjeta p {
+    color: var(--texto-suave);
+    font-size: 0.98rem;
+  }
+  .tarjeta-icono {
+    display: block;
+    font-size: 1.6rem;
+    color: var(--oro-claro);
+    margin-bottom: 16px;
+  }
+
+  /* ---------- ZARAGOZA ---------- */
+  .seccion-zaragoza {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(201, 162, 75, 0.08), transparent 60%),
+      var(--negro-2);
+    border-top: 1px solid rgba(201, 162, 75, 0.1);
+    border-bottom: 1px solid rgba(201, 162, 75, 0.1);
+  }
+
+  /* ---------- SERVICIOS ---------- */
+  .grid-servicios {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 50px;
+  }
+  .servicio {
+    display: flex;
+    gap: 22px;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+  .servicio-num {
+    font-family: var(--serif);
+    font-size: 2.6rem;
+    font-weight: 600;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .servicio h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+  }
+  .servicio p {
+    color: var(--texto-suave);
+    font-size: 0.98rem;
+  }
+
+  /* ---------- CIFRAS ---------- */
+  .seccion-cifras {
+    background: linear-gradient(180deg, var(--negro), var(--negro-2));
+    border-top: 1px solid var(--borde);
+    border-bottom: 1px solid var(--borde);
+    padding: 80px 0;
+  }
+  .cifra-bloque {
+    text-align: center;
+  }
+  .cifra-valor {
+    display: block;
+    font-family: var(--serif);
+    font-size: 3.4rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .cifra-texto {
+    color: var(--texto-suave);
+    font-size: 0.9rem;
+  }
+
+  /* ---------- PROCESO ---------- */
+  .seccion-proceso {
+    background: var(--negro-2);
+  }
+  .paso {
+    text-align: center;
+    padding: 20px;
+  }
+  .paso-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid var(--oro);
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: var(--oro-claro);
+    margin-bottom: 22px;
+  }
+  .paso h3 {
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+  }
+  .paso p {
+    color: var(--texto-suave);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- CASOS ---------- */
+  .tarjeta-caso {
+    text-align: center;
+  }
+  .caso-renta {
+    font-family: var(--serif);
+    font-size: 3rem;
+    font-weight: 600;
+    display: block;
+  }
+  .caso-etiqueta {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    display: block;
+    margin-bottom: 18px;
+  }
+  .tarjeta-caso h3 {
+    font-size: 1.3rem;
+  }
+
+  /* ---------- FAQ ---------- */
+  .contenedor-estrecho {
+    max-width: 780px;
+  }
+  .faqs {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .faq {
+    background: var(--negro-2);
+    border: 1px solid var(--borde);
+    border-radius: 4px;
+    padding: 0 26px;
+  }
+  .faq summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 0;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-family: var(--serif);
+    list-style: none;
+  }
+  .faq summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-mas {
+    color: var(--oro-claro);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    transition: transform 0.3s;
+  }
+  .faq[open] .faq-mas {
+    transform: rotate(45deg);
+  }
+  .faq p {
+    color: var(--texto-suave);
+    padding: 0 0 24px;
+    font-size: 1rem;
+  }
+
+  /* ---------- CONTACTO ---------- */
+  .seccion-contacto {
+    background:
+      radial-gradient(ellipse at 50% 100%, rgba(201, 162, 75, 0.12), transparent 60%),
+      var(--negro);
+  }
+  .formulario {
+    background: var(--negro-2);
+    border: 1px solid var(--borde);
+    border-radius: 6px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .fila-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .campo label {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+    letter-spacing: 0.04em;
+  }
+  .campo input,
+  .campo select,
+  .campo textarea {
+    background: var(--negro);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 3px;
+    padding: 14px 16px;
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 1rem;
+    transition: border-color 0.25s;
+  }
+  .campo input:focus,
+  .campo select:focus,
+  .campo textarea:focus {
+    outline: none;
+    border-color: var(--oro-claro);
+  }
+  .campo textarea {
+    resize: vertical;
+  }
+  .check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+  }
+  .check input {
+    margin-top: 4px;
+    accent-color: var(--oro);
+  }
+  .btn-full {
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer {
+    background: var(--negro);
+    border-top: 1px solid var(--borde);
+    padding: 60px 0 40px;
+  }
+  .footer-inner {
+    text-align: center;
+  }
+  .footer-logo {
+    height: 80px;
+    width: auto;
+    margin: 0 auto 20px;
+  }
+  .footer-texto {
+    color: var(--texto-suave);
+    max-width: 460px;
+    margin: 0 auto 26px;
+    font-size: 0.95rem;
+  }
+  .footer-legal {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: #777;
+  }
+  .footer-legal a:hover {
+    color: var(--oro-claro);
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px) {
+    .grid-3,
+    .grid-4,
+    .grid-2,
+    .grid-servicios,
+    .hero-cifras {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .nav {
+      display: none;
+    }
+    .btn-header {
+      display: none;
+    }
+    .grid-3,
+    .grid-4,
+    .grid-2,
+    .grid-servicios,
+    .hero-cifras,
+    .fila-2 {
+      grid-template-columns: 1fr;
+    }
+    .formulario {
+      padding: 26px;
+    }
+    .hero-cifra {
+      text-align: center;
+      align-items: center;
+    }
+  }
+</style>
