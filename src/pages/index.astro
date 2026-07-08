@@ -381,16 +381,20 @@ const faqs = [
       </div>
 
       <!--
-        FORMULARIO: para que los datos te lleguen de verdad, conéctalo a un servicio gratuito.
-        Opción fácil (Formspree): crea una cuenta en https://formspree.io, copia tu ID
-        y sustitúyelo abajo en action="https://formspree.io/f/TU_ID".
-        Si despliegas en Netlify, puedes usar sus formularios nativos (añade netlify al <form>).
+        FORMULARIO conectado a Web3Forms (gratis, sin registro).
+        Los mensajes se envían al email configurado en la clave "access_key".
+        Para activarlo: entra en https://web3forms.com, escribe jose@propertyinvestors.es,
+        recibirás una "Access Key" en ese correo y la pegas abajo sustituyendo TU_ACCESS_KEY.
       -->
-      <form
-        class="formulario"
-        action="https://formspree.io/f/TU_ID"
-        method="POST"
-      >
+      <form class="formulario" id="form-contacto">
+        <!-- Clave de acceso vinculada a jose@propertyinvestors.es -->
+        <input type="hidden" name="access_key" value="84a4ec83-1730-4b7b-907a-bdf359e07df6" />
+        <!-- Asunto y remitente del email que recibirás -->
+        <input type="hidden" name="subject" value="Nuevo inversor interesado — Property Investors" />
+        <input type="hidden" name="from_name" value="Web Property Investors" />
+        <!-- Anti-spam (campo oculto que los bots rellenan y los humanos no) -->
+        <input type="checkbox" name="botcheck" class="hidden" style="display:none" />
+
         <div class="campo">
           <label for="nombre">Nombre y apellidos</label>
           <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
@@ -423,6 +427,14 @@ const faqs = [
           <span>Acepto la política de privacidad y el tratamiento de mis datos.</span>
         </label>
         <button type="submit" class="btn btn-oro btn-full">Quiero invertir</button>
+
+        <!-- Mensajes de estado -->
+        <p class="form-estado form-ok" id="form-ok">
+          ✓ ¡Gracias! Hemos recibido tus datos. Un asesor te contactará muy pronto.
+        </p>
+        <p class="form-estado form-error" id="form-error">
+          Ha ocurrido un error al enviar. Inténtalo de nuevo o escríbenos a jose@propertyinvestors.es
+        </p>
       </form>
     </div>
   </section>
@@ -444,6 +456,42 @@ const faqs = [
       </div>
     </div>
   </footer>
+
+  <script is:inline>
+    document.getElementById("form-contacto")?.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const boton = form.querySelector('button[type="submit"]');
+      const ok = document.getElementById("form-ok");
+      const error = document.getElementById("form-error");
+      ok.style.display = "none";
+      error.style.display = "none";
+      const textoOriginal = boton.textContent;
+      boton.textContent = "Enviando...";
+      boton.disabled = true;
+
+      try {
+        const datos = new FormData(form);
+        const respuesta = await fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          body: datos,
+        });
+        const json = await respuesta.json();
+        if (json.success) {
+          form.reset();
+          ok.style.display = "block";
+          ok.scrollIntoView({ behavior: "smooth", block: "center" });
+        } else {
+          error.style.display = "block";
+        }
+      } catch (err) {
+        error.style.display = "block";
+      } finally {
+        boton.textContent = textoOriginal;
+        boton.disabled = false;
+      }
+    });
+  </script>
 </Layout>
 
 <style>
@@ -828,6 +876,24 @@ const faqs = [
     width: 100%;
     justify-content: center;
     margin-top: 6px;
+  }
+  .form-estado {
+    display: none;
+    text-align: center;
+    padding: 14px 18px;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    margin-top: 4px;
+  }
+  .form-ok {
+    background: rgba(201, 162, 75, 0.12);
+    border: 1px solid var(--oro);
+    color: var(--oro-claro);
+  }
+  .form-error {
+    background: rgba(180, 60, 60, 0.12);
+    border: 1px solid rgba(200, 90, 90, 0.6);
+    color: #e8a0a0;
   }
 
   /* ---------- FOOTER ---------- */
